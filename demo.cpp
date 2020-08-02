@@ -1,8 +1,4 @@
-#include "QtGuiApplication4.h"
-#include <QtWidgets/QApplication>
-
 #include "logger.h"
-
 #ifndef NO_USE_STACK
 #include "Crash/BaseException.h"
 #endif
@@ -17,7 +13,7 @@ void StackWalkStart()
 
 Logger g_logger("log.txt");
 
-int main(int argc, char *argv[])
+int main()
 {
 #ifndef NO_USE_STACK
 	SET_DEFULTER_HANDLER();
@@ -26,8 +22,9 @@ int main(int argc, char *argv[])
 	StackWalkStart();
 #endif
 
-	QApplication a(argc, argv);
-	QtGuiApplication4 w;
-	w.show();
-	return a.exec();
+	int div = 0;
+	for (int i = 0; i < 10; i++)
+		div = 10 / i;
+
+	return 0;
 }
